@@ -1,16 +1,19 @@
 import getpass
 from aescipher import AESCipher
 
+plaintext_file_name = 'plaintext.txt'
+ciphertext_file_name = 'cipher.bin'
+
 password = getpass.getpass()
 
 cipher = AESCipher(password)
 
-plaintxt = ''
-with open('plaintext.txt', 'r') as f:
-    plaintxt = f.read()
+plaintext = ''
+with open(plaintext_file_name, 'r') as f:
+    plaintext = f.read()
 
-ciphertxt = cipher.encrypt(plaintxt)
+ciphertext = cipher.encrypt(plaintext)
 
-with open('cipher.bin', 'wb') as f:
-    f.write(ciphertxt)
+with open(ciphertext_file_name, 'wb') as f:
+    f.write(ciphertext)
 print("Encrypted Binary Created")
